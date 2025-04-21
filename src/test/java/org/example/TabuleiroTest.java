@@ -3,39 +3,40 @@ package org.example;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 class TabuleiroTest {
 
     @Test
     void imovelMaiorValor() {
-        Tabuleiro tabuleiro = new Tabuleiro();
-        Imovel imovel1 = new Imovel("A","AA","Rosa",600,100);
-        Imovel imovel2 = new Imovel("B","BB","Rosa",5000,300);
-        Imovel imovel3 = new Imovel("C","CC","Rosa",400,90);
+        ArrayList<Imoveis> listaImoveis = new ArrayList<>();
+        Tabuleiro tabuleiro = new Tabuleiro(listaImoveis);
 
-        List<Imovel> listaImoveis = List.of(imovel1,imovel2,imovel3);
+        tabuleiro.criarImovel("Rosa", "Loja", 175, 3000);
+        tabuleiro.criarImovel("Amarelo", "Predio", 250, 5000);
+        tabuleiro.criarImovel("Azul", "Casa", 100, 1000);
 
-        Imovel imovelMaiorValor = tabuleiro.imovelMaiorValor(listaImoveis);
+        Imoveis imoveisMaiorValor = tabuleiro.imovelMaiorValor(listaImoveis);
 
-        double maiorValor = imovelMaiorValor.getValorCompra();
+        double maiorValor = imoveisMaiorValor.getPreco();
 
         Assertions.assertEquals(5000, maiorValor);
     }
 
     @Test
     void imovelMenorValor() {
-        Tabuleiro tabuleiro = new Tabuleiro();
-        Imovel imovel1 = new Imovel("A","AA","Rosa",600,100);
-        Imovel imovel2 = new Imovel("B","BB","Rosa",5000,300);
-        Imovel imovel3 = new Imovel("C","CC","Rosa",400,90);
+        ArrayList<Imoveis> listaImoveis = new ArrayList<>();
+        Tabuleiro tabuleiro = new Tabuleiro(listaImoveis);
 
-        List<Imovel> listaImoveis = List.of(imovel1,imovel2,imovel3);
+        tabuleiro.criarImovel("Rosa", "Loja", 175, 3000);
+        tabuleiro.criarImovel("Amarelo", "Predio", 250, 5000);
+        tabuleiro.criarImovel("Azul", "Casa", 100, 1000);
 
-        Imovel imovelMenorValor = tabuleiro.imovelMenorValor(listaImoveis);
+        Imoveis imoveisMenorValor = tabuleiro.imovelMenorValor(listaImoveis);
 
-        double menorValor = imovelMenorValor.getValorCompra();
+        double menorValor = imoveisMenorValor.getPreco();
 
-        Assertions.assertEquals(400, menorValor);
+        Assertions.assertEquals(1000, menorValor);
     }
 }

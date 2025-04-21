@@ -1,16 +1,28 @@
 package org.example;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Jogador {
-    private String nome;
-    private List<Imovel> listaImoveis;
-    private double valorCarteira;
 
-    public Jogador(String nome, List<Imovel> listaImoveis) {
+    private int posicao;
+    private int dinheiro;
+    private String nome;
+    private int ativo;
+    private ArrayList<Imoveis> imoveisjogador = new ArrayList<>();
+
+    public Jogador(String nome) {
+        this.posicao = 0;
+        this.dinheiro = -100;
         this.nome = nome;
-        this.listaImoveis = listaImoveis;
-        this.valorCarteira = 0;
+        this.ativo = 0;
+    }
+
+    public int getDinheiro() {
+        return dinheiro;
+    }
+
+    public void setDinheiro(int dinheiro) {
+        this.dinheiro = dinheiro;
     }
 
     public String getNome() {
@@ -21,19 +33,39 @@ public class Jogador {
         this.nome = nome;
     }
 
-    public List<Imovel> getListaImoveis() {
-        return listaImoveis;
+    public ArrayList<Imoveis> getImoveisjogador() {
+        return imoveisjogador;
     }
 
-    public void setListaImoveis(List<Imovel> listaImoveis) {
-        this.listaImoveis = listaImoveis;
+    public void setImoveisjogador(ArrayList<Imoveis> imoveisjogador) {
+        this.imoveisjogador = imoveisjogador;
     }
 
-    public double getValorCarteira() {
-        return valorCarteira;
+    public int getPosicao() {
+        return posicao;
     }
 
-    public void setValorCarteira(double valorCarteira) {
-        this.valorCarteira = valorCarteira;
+    public void setPosicao(int posicao) {
+        this.posicao = posicao;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nJogador: ");
+        sb.append("nome = ").append(nome);
+        sb.append(", posicao = ").append(posicao);
+        sb.append(", dinheiro = ").append(dinheiro);
+        sb.append(", imoveisjogador = ").append(imoveisjogador);
+        return sb.toString();
+    }
+
+    public int getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(int ativo) {
+        this.ativo = ativo;
+    }
+
 }
