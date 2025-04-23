@@ -10,9 +10,9 @@ public class Jogador {
     private int ativo;
     private ArrayList<Imoveis> imoveisjogador = new ArrayList<>();
 
-    public Jogador(String nome) {
+    public Jogador(String nome, int dinheiro) {
         this.posicao = 0;
-        this.dinheiro = -100;
+        this.dinheiro = dinheiro;
         this.nome = nome;
         this.ativo = 0;
     }

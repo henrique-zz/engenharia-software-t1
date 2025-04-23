@@ -41,7 +41,7 @@ public class Tabuleiro {
     // dado que move o jogador
     public void dado(Jogador jogador) {
         int max = imoveistabuleiro.size();
-        int dado = (int) Math.round(Math.random() * max);
+        int dado = (int) Math.round(Math.random() * max) + 1;
         System.out.println("Dado: " + dado);
         int novaPosicao;
         if (jogador.getPosicao() + dado < max) {

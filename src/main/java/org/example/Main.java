@@ -19,7 +19,9 @@ public class Main {
         for (int i = 1; i < 4; i++) {
             System.out.println("Nome do jogador " + i);
             String nome = input.nextLine();
-            Jogador jogador = new Jogador(nome);
+            System.out.println("Dinheiro inicial do jogador " + i);
+            int dinheiro = Integer.parseInt(input.nextLine());
+            Jogador jogador = new Jogador(nome,dinheiro);
             listaJogadores.add(jogador);
         }
 
